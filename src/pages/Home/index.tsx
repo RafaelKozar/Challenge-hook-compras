@@ -58,7 +58,7 @@ const Home = (): JSX.Element => {
           }));
           
         setProducts(data);
-        console.log(data);
+        // console.log(data);
 
     }
 
@@ -72,6 +72,7 @@ const Home = (): JSX.Element => {
   return (
     <ProductList>
       {products.map(product => (
+        
         <li key={product.id}>
           <img src={product.image} alt={product.title} />
           <strong>{product.title}</strong>

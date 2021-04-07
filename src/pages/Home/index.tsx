@@ -29,10 +29,11 @@ const Home = (): JSX.Element => {
 
   
   const cartItemsAmount = cart.reduce((sumAmount, product) => {  
-    sumAmount = {...sumAmount, [product.id] : product.amount};    
-
-    // console.log(sumAmount);
-    return sumAmount;
+    // sumAmount = {...sumAmount, [product.id] : product.amount};    
+    const newSumAmount = {...sumAmount};
+    newSumAmount[product.id] = product.amount;
+        
+    return newSumAmount;
   }, {} as CartItemsAmount)
 
   type K3 = keyof { [x: number]: number };

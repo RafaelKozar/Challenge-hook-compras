@@ -52,10 +52,10 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
   const addProduct = async (productId: number) => {
     try {
 
-      const tempCart = [...cart]
+      const tempCart = cart.map(product => ({...product}));
       const { data } = await api.get<Stock>(`stock/${productId}`);
 
-      const thereIsProduct = tempCart.find(({ id }) => id === productId);
+      const thereIsProduct = tempCart.find(x => x.id === productId);
 
       const currentAmount = thereIsProduct ? thereIsProduct.amount : 1;
       const updateAmount = currentAmount+1;
